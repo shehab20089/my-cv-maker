@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { DataEntry, Header, Section, CvViewer } from "./components";
+import { useReactToPrint } from "react-to-print";
+
 function App() {
   const [enteredData, setEnteredData] = useState({
     personalInfo: {
@@ -9,6 +11,11 @@ function App() {
       githubLink: "https//:www.github.com",
       linkedInLink: "https://www.linkedin.com/in/shehab-mohsen-6ba984168/",
     },
+  });
+  const componentRef = useRef();
+
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
   });
 
   return (
@@ -20,10 +27,11 @@ function App() {
             onDataChanged={(data) => setEnteredData(data)}
             currentData={enteredData}
           />
+          <button onClick={handlePrint}>Print</button>
         </Section>
 
         <Section>
-          <CvViewer data={enteredData} />
+          <CvViewer data={enteredData} parentRef={componentRef} />
         </Section>
       </div>
     </>

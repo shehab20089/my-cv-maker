@@ -11,3 +11,8 @@
   padding-inline: 5rem;
   margin-top: 5rem;
 }
+@media print {
+  body {
+    padding: 2rem;
+  }
+}
