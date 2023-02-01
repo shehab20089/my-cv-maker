@@ -1,0 +1,10 @@
+.personal-info {
+  text-align: center;
+}
+.personal-info > h2 {
+  font-size: 2.7rem;
+}
+h3 {
+  border-bottom: 2px solid black;
+  margin-block-end: 1.5rem;
+}
